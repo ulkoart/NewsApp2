@@ -73,3 +73,12 @@ extension CollectionVC {
         navigationController?.pushViewController(detail, animated: true)
     }
 }
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension CollectionVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width
+        return CGSize(width: width - 10, height: 100)
+    }
+}

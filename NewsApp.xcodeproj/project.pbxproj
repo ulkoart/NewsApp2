@@ -126,9 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				CE74854B252B24880080E261 /* TopHeadlinesResponse.swift */,
-				CE74854D252B25270080E261 /* NetworkManager.swift */,
 				CE748551252B54B50080E261 /* Article.swift */,
 				CE748553252B550F0080E261 /* Source.swift */,
+				CE74854D252B25270080E261 /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
