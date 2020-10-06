@@ -8,12 +8,16 @@
 
 import UIKit
 
-
 class DetailVC: UIViewController {
+    var viewModel: DetailViewModelType?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         addGradient()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     private func addGradient() {

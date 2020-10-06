@@ -64,9 +64,12 @@ extension CollectionVC: UICollectionViewDataSource, UICollectionViewDelegate {
 
 extension CollectionVC {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let detail = storyboard?.instantiateViewController(withIdentifier: "ShowDetail") as? DetailVC else {
+        guard
+            let detail = storyboard?.instantiateViewController(withIdentifier: "ShowDetail") as? DetailVC,
+            let viewModel = viewModel else {
             fatalError("DetailVC wasn't configured")
         }
+        detail.viewModel = viewModel.viewModelForSelectedRow()
         navigationController?.pushViewController(detail, animated: true)
     }
 }

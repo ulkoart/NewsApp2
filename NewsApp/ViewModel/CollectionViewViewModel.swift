@@ -10,6 +10,7 @@ import Foundation
 
 final class CollectionViewViewModel: CollectionViewViewModelType {
     
+    private var selectedIndexPath: IndexPath?
     private var articles = [Article]()
     
     func fetchArticles(completionHandler: @escaping() -> ()) {
@@ -27,5 +28,14 @@ final class CollectionViewViewModel: CollectionViewViewModelType {
     func cellViewModel(forIndexPath indexPath: IndexPath) -> CollectionViewCellViewModelType? {
         let article = articles[indexPath.row]
         return CollectionViewCellViewModel(article: article)
+    }
+    
+    func viewModelForSelectedRow() -> DetailViewModelType? {
+        guard let selectedIndexPath = selectedIndexPath else { return nil }
+        return DetailViewModel(article: articles[selectedIndexPath.row])
+    }
+    
+    func selectRow(atIndexPath indexPath: IndexPath) {
+        self.selectedIndexPath = indexPath
     }
 }

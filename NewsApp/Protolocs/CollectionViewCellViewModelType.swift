@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CollectionViewCellViewModelType {
+protocol CollectionViewCellViewModelType: class {
     var title: String { get }
     var sourse: String { get }
     var urlToImage: String { get }

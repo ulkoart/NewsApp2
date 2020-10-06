@@ -11,6 +11,8 @@
 		CE31A4B6252B21CD00805E88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE31A4B4252B21CD00805E88 /* Main.storyboard */; };
 		CE31A4B8252B21CF00805E88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE31A4B7252B21CF00805E88 /* Assets.xcassets */; };
 		CE31A4BB252B21CF00805E88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE31A4B9252B21CF00805E88 /* LaunchScreen.storyboard */; };
+		CE4EDA47252C65A40044B772 /* DetailViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EDA46252C65A40044B772 /* DetailViewModelType.swift */; };
+		CE4EDA49252C66610044B772 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4EDA48252C66610044B772 /* DetailViewModel.swift */; };
 		CE73B912252C445700506D88 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73B911252C445700506D88 /* DetailVC.swift */; };
 		CE73B915252C49FD00506D88 /* UIColorHexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73B914252C49FD00506D88 /* UIColorHexString.swift */; };
 		CE73B91A252C4DC000506D88 /* CollectionViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73B919252C4DC000506D88 /* CollectionViewViewModelType.swift */; };
@@ -32,6 +34,8 @@
 		CE31A4B7252B21CF00805E88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE31A4BA252B21CF00805E88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE31A4BC252B21CF00805E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE4EDA46252C65A40044B772 /* DetailViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModelType.swift; sourceTree = "<group>"; };
+		CE4EDA48252C66610044B772 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		CE73B911252C445700506D88 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		CE73B914252C49FD00506D88 /* UIColorHexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHexString.swift; sourceTree = "<group>"; };
 		CE73B919252C4DC000506D88 /* CollectionViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewViewModelType.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 			children = (
 				CE73B91B252C4DEA00506D88 /* CollectionViewViewModel.swift */,
 				CE73B921252C57EC00506D88 /* CollectionViewCellViewModel.swift */,
+				CE4EDA48252C66610044B772 /* DetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			children = (
 				CE73B919252C4DC000506D88 /* CollectionViewViewModelType.swift */,
 				CE73B91D252C56BA00506D88 /* CollectionViewCellViewModelType.swift */,
+				CE4EDA46252C65A40044B772 /* DetailViewModelType.swift */,
 			);
 			path = Protolocs;
 			sourceTree = "<group>";
@@ -211,6 +217,7 @@
 				CEA60EC9252C39FA009488EF /* ListVC.swift in Sources */,
 				CE73B91E252C56BA00506D88 /* CollectionViewCellViewModelType.swift in Sources */,
 				CEA60EC8252C39FA009488EF /* ListCell.swift in Sources */,
+				CE4EDA47252C65A40044B772 /* DetailViewModelType.swift in Sources */,
 				CE74854E252B25270080E261 /* NetworkManager.swift in Sources */,
 				CE748552252B54B50080E261 /* Article.swift in Sources */,
 				CE73B91C252C4DEA00506D88 /* CollectionViewViewModel.swift in Sources */,
@@ -220,6 +227,7 @@
 				CE31A4AF252B21CD00805E88 /* AppDelegate.swift in Sources */,
 				CE73B91A252C4DC000506D88 /* CollectionViewViewModelType.swift in Sources */,
 				CE73B915252C49FD00506D88 /* UIColorHexString.swift in Sources */,
+				CE4EDA49252C66610044B772 /* DetailViewModel.swift in Sources */,
 				CE74854C252B24880080E261 /* TopHeadlinesResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

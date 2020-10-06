@@ -12,4 +12,6 @@ protocol CollectionViewViewModelType {
     func numberOfRows() -> Int
     func fetchArticles(completionHandler: @escaping() -> ())
     func cellViewModel(forIndexPath indexPath: IndexPath) -> CollectionViewCellViewModelType?
+    func viewModelForSelectedRow() -> DetailViewModelType?
+    func selectRow(atIndexPath indexPath: IndexPath)
 }

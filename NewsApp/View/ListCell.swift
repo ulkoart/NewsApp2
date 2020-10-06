@@ -10,14 +10,13 @@ import UIKit
 
 class ListCell: UICollectionViewCell {
     @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet weak var sourseLabel: UILabel!
+    @IBOutlet private var sourseLabel: UILabel!
     @IBOutlet private var imageView: UIImageView!
     private var imageLoadTask: URLSessionTask?
     
-    var viewModel: CollectionViewCellViewModelType? {
+    weak var viewModel: CollectionViewCellViewModelType? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
-            
             setup(title: viewModel.title, sourse: viewModel.sourse, urlToImage: viewModel.urlToImage)
         }
     }
@@ -28,7 +27,8 @@ class ListCell: UICollectionViewCell {
         imageLoadTask?.cancel()
     }
     
-    func setup(title: String, sourse: String, urlToImage: String) {
+    private func setup(title: String, sourse: String, urlToImage: String) {
+        self.layer.cornerRadius = 5
         titleLabel.text = title
         sourseLabel.text = sourse
         imageView.image = UIImage(named: "icon-placeholder")
@@ -41,6 +41,5 @@ class ListCell: UICollectionViewCell {
             }
         }
         imageLoadTask?.resume()
-        self.layer.cornerRadius = 5
     }
 }
