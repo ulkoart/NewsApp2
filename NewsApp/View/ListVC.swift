@@ -14,25 +14,11 @@ class CollectionVC: UIViewController {
     
     private let reuseIdentifier = "Cell"
     private let refreshControl = UIRefreshControl()
-    private var articles = [Article]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-    }
+    private var viewModel: CollectionViewViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        loadArticles()
-    }
-    
-    private func loadArticles() {
-        NetworkManagerImp.getTopHeadlines() {topHeadlinesResponse,error in
-            guard let topHeadlinesResponse = topHeadlinesResponse else { return }
-            self.articles = topHeadlinesResponse.articles
-        }
     }
     
     private func setup() {
@@ -40,6 +26,14 @@ class CollectionVC: UIViewController {
         collectionView.dataSource = self
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshArticles(_:)), for: .valueChanged)
+        
+        viewModel = CollectionViewViewModel()
+        viewModel?.fetchArticles {
+            [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
     }
     
     @objc private func refreshArticles(_ sender: Any) {
@@ -52,26 +46,27 @@ class CollectionVC: UIViewController {
 extension CollectionVC: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return articles.count
+        return viewModel?.numberOfRows() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ListVCCell else {
-            fatalError("cell wasn't configured")
-        }
-        let article = articles[indexPath.row]
-        cell.setup(with: article)
+        guard
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? ListCell,
+            let viewModel = viewModel else { fatalError("cell wasn't configured")}
+
+        let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
+        cell.viewModel = cellViewModel
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let article = articles[indexPath.row]
-        performSegue(withIdentifier: "ShowDetail", sender: self)
     }
 }
 
 // MARK: - Navigation
 
 extension CollectionVC {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let detail = storyboard?.instantiateViewController(withIdentifier: "ShowDetail") as? DetailVC else {
+            fatalError("DetailVC wasn't configured")
+        }
+        navigationController?.pushViewController(detail, animated: true)
+    }
 }

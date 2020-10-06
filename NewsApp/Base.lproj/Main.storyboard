@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="1" maxX="0.0" maxY="1"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="fgn-i5-CI7" userLabel="Cell" customClass="ListVCCell" customModule="NewsApp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="fgn-i5-CI7" userLabel="Cell" customClass="ListCell" customModule="NewsApp" customModuleProvider="target">
                                         <rect key="frame" x="12.5" y="1" width="350" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Hbt-T3-U9G">
@@ -94,17 +94,16 @@
                     <navigationItem key="navigationItem" title="News App" id="SPm-m5-v3w"/>
                     <connections>
                         <outlet property="collectionView" destination="w2O-fH-wJr" id="f5C-Ub-cVr"/>
-                        <segue destination="MOz-MZ-3Ft" kind="show" identifier="ShowDetail" id="Xl2-VO-gjd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1071.2" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--DetailVC-->
         <scene sceneID="Gug-lr-paM">
             <objects>
-                <viewController id="MOz-MZ-3Ft" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowDetail" id="MOz-MZ-3Ft" customClass="DetailVC" customModule="NewsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xbj-IK-i31">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -8,11 +8,19 @@
 
 import UIKit
 
-class ListVCCell: UICollectionViewCell {
+class ListCell: UICollectionViewCell {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet weak var sourseLabel: UILabel!
     @IBOutlet private var imageView: UIImageView!
     private var imageLoadTask: URLSessionTask?
+    
+    var viewModel: CollectionViewCellViewModelType? {
+        willSet(viewModel) {
+            guard let viewModel = viewModel else { return }
+            
+            setup(title: viewModel.title, sourse: viewModel.sourse, urlToImage: viewModel.urlToImage)
+        }
+    }
     
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -20,13 +28,12 @@ class ListVCCell: UICollectionViewCell {
         imageLoadTask?.cancel()
     }
     
-    func setup(with article: Article) {
-        titleLabel.text = article.title
-        sourseLabel.text = article.source.name
-        
+    func setup(title: String, sourse: String, urlToImage: String) {
+        titleLabel.text = title
+        sourseLabel.text = sourse
         imageView.image = UIImage(named: "icon-placeholder")
-        
-        guard let imageUrl = URL(string: article.urlToImage) else { return }
+
+        guard let imageUrl = URL(string: urlToImage) else { return }
         imageLoadTask = URLSession.shared.dataTask(with: imageUrl) { data, _, _ in
             guard let data = data, let image = UIImage(data: data) else { return }
             DispatchQueue.main.async {

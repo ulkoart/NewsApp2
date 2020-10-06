@@ -11,11 +11,17 @@
 		CE31A4B6252B21CD00805E88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE31A4B4252B21CD00805E88 /* Main.storyboard */; };
 		CE31A4B8252B21CF00805E88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE31A4B7252B21CF00805E88 /* Assets.xcassets */; };
 		CE31A4BB252B21CF00805E88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE31A4B9252B21CF00805E88 /* LaunchScreen.storyboard */; };
+		CE73B912252C445700506D88 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73B911252C445700506D88 /* DetailVC.swift */; };
+		CE73B915252C49FD00506D88 /* UIColorHexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73B914252C49FD00506D88 /* UIColorHexString.swift */; };
+		CE73B91A252C4DC000506D88 /* CollectionViewViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73B919252C4DC000506D88 /* CollectionViewViewModelType.swift */; };
+		CE73B91C252C4DEA00506D88 /* CollectionViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73B91B252C4DEA00506D88 /* CollectionViewViewModel.swift */; };
+		CE73B91E252C56BA00506D88 /* CollectionViewCellViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73B91D252C56BA00506D88 /* CollectionViewCellViewModelType.swift */; };
+		CE73B922252C57EC00506D88 /* CollectionViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE73B921252C57EC00506D88 /* CollectionViewCellViewModel.swift */; };
 		CE74854C252B24880080E261 /* TopHeadlinesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74854B252B24880080E261 /* TopHeadlinesResponse.swift */; };
 		CE74854E252B25270080E261 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE74854D252B25270080E261 /* NetworkManager.swift */; };
 		CE748552252B54B50080E261 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE748551252B54B50080E261 /* Article.swift */; };
 		CE748554252B550F0080E261 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE748553252B550F0080E261 /* Source.swift */; };
-		CEA60EC8252C39FA009488EF /* ListVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA60EC6252C39FA009488EF /* ListVCCell.swift */; };
+		CEA60EC8252C39FA009488EF /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA60EC6252C39FA009488EF /* ListCell.swift */; };
 		CEA60EC9252C39FA009488EF /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA60EC7252C39FA009488EF /* ListVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,11 +32,17 @@
 		CE31A4B7252B21CF00805E88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE31A4BA252B21CF00805E88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE31A4BC252B21CF00805E88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE73B911252C445700506D88 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		CE73B914252C49FD00506D88 /* UIColorHexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHexString.swift; sourceTree = "<group>"; };
+		CE73B919252C4DC000506D88 /* CollectionViewViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewViewModelType.swift; sourceTree = "<group>"; };
+		CE73B91B252C4DEA00506D88 /* CollectionViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewViewModel.swift; sourceTree = "<group>"; };
+		CE73B91D252C56BA00506D88 /* CollectionViewCellViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellViewModelType.swift; sourceTree = "<group>"; };
+		CE73B921252C57EC00506D88 /* CollectionViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCellViewModel.swift; sourceTree = "<group>"; };
 		CE74854B252B24880080E261 /* TopHeadlinesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeadlinesResponse.swift; sourceTree = "<group>"; };
 		CE74854D252B25270080E261 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CE748551252B54B50080E261 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Article.swift; path = NewsApp/Article.swift; sourceTree = SOURCE_ROOT; };
 		CE748553252B550F0080E261 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
-		CEA60EC6252C39FA009488EF /* ListVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVCCell.swift; sourceTree = "<group>"; };
+		CEA60EC6252C39FA009488EF /* ListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		CEA60EC7252C39FA009488EF /* ListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,8 +76,11 @@
 		CE31A4AD252B21CC00805E88 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				CE73B913252C49C100506D88 /* Supporting */,
+				CE73B918252C4D9E00506D88 /* Protolocs */,
 				CE74854A252B243D0080E261 /* Model */,
 				CE748555252B555D0080E261 /* View */,
+				CE73B916252C4C9700506D88 /* ViewModel */,
 				CE31A4AE252B21CD00805E88 /* AppDelegate.swift */,
 				CE31A4B4252B21CD00805E88 /* Main.storyboard */,
 				CE31A4B7252B21CF00805E88 /* Assets.xcassets */,
@@ -73,6 +88,32 @@
 				CE31A4BC252B21CF00805E88 /* Info.plist */,
 			);
 			path = NewsApp;
+			sourceTree = "<group>";
+		};
+		CE73B913252C49C100506D88 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				CE73B914252C49FD00506D88 /* UIColorHexString.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		CE73B916252C4C9700506D88 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE73B91B252C4DEA00506D88 /* CollectionViewViewModel.swift */,
+				CE73B921252C57EC00506D88 /* CollectionViewCellViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CE73B918252C4D9E00506D88 /* Protolocs */ = {
+			isa = PBXGroup;
+			children = (
+				CE73B919252C4DC000506D88 /* CollectionViewViewModelType.swift */,
+				CE73B91D252C56BA00506D88 /* CollectionViewCellViewModelType.swift */,
+			);
+			path = Protolocs;
 			sourceTree = "<group>";
 		};
 		CE74854A252B243D0080E261 /* Model */ = {
@@ -89,8 +130,9 @@
 		CE748555252B555D0080E261 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CEA60EC6252C39FA009488EF /* ListVCCell.swift */,
 				CEA60EC7252C39FA009488EF /* ListVC.swift */,
+				CEA60EC6252C39FA009488EF /* ListCell.swift */,
+				CE73B911252C445700506D88 /* DetailVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,11 +209,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEA60EC9252C39FA009488EF /* ListVC.swift in Sources */,
-				CEA60EC8252C39FA009488EF /* ListVCCell.swift in Sources */,
+				CE73B91E252C56BA00506D88 /* CollectionViewCellViewModelType.swift in Sources */,
+				CEA60EC8252C39FA009488EF /* ListCell.swift in Sources */,
 				CE74854E252B25270080E261 /* NetworkManager.swift in Sources */,
 				CE748552252B54B50080E261 /* Article.swift in Sources */,
+				CE73B91C252C4DEA00506D88 /* CollectionViewViewModel.swift in Sources */,
+				CE73B922252C57EC00506D88 /* CollectionViewCellViewModel.swift in Sources */,
 				CE748554252B550F0080E261 /* Source.swift in Sources */,
+				CE73B912252C445700506D88 /* DetailVC.swift in Sources */,
 				CE31A4AF252B21CD00805E88 /* AppDelegate.swift in Sources */,
+				CE73B91A252C4DC000506D88 /* CollectionViewViewModelType.swift in Sources */,
+				CE73B915252C49FD00506D88 /* UIColorHexString.swift in Sources */,
 				CE74854C252B24880080E261 /* TopHeadlinesResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
