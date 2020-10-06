@@ -14,7 +14,7 @@ struct Article: Codable {
     let title: String
     let articleDescription: String?
     let url: String
-    let urlToImage: String
+    let urlToImage: String // ToDo check https if protocol http
     let publishedAt: String
     let content: String?
 
