@@ -69,6 +69,7 @@ extension CollectionVC {
             let viewModel = viewModel else {
             fatalError("DetailVC wasn't configured")
         }
+        viewModel.selectRow(atIndexPath: indexPath)
         detail.viewModel = viewModel.viewModelForSelectedRow()
         navigationController?.pushViewController(detail, animated: true)
     }

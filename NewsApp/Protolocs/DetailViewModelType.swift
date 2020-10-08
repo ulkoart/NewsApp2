@@ -9,4 +9,8 @@
 import Foundation
 
 protocol DetailViewModelType {
+    var title: String { get }
+    var sourse: String { get }
+    var description: String? { get }
+    var url: String { get }
 }
