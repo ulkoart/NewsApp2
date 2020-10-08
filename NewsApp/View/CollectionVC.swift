@@ -26,7 +26,6 @@ class CollectionVC: UIViewController {
         collectionView.dataSource = self
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshArticles(_:)), for: .valueChanged)
-        
         viewModel = CollectionViewViewModel()
         viewModel?.fetchArticles {
             [weak self] in

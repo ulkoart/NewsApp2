@@ -23,19 +23,7 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.delegate = self
-        addGradient()
-        
-        openSourceButton.backgroundColor = .clear
-        openSourceButton.layer.cornerRadius = 15
-        openSourceButton.layer.borderWidth = 1
-        openSourceButton.layer.borderColor = UIColor.red.cgColor
-        openSourceButton.setTitleColor(.red, for: .normal)
-        
-        if let viewModel = viewModel {
-            titleLabel.text = viewModel.title
-            sourceLabel.text = viewModel.sourse
-            descriptionLabel.text = viewModel.description
-        }
+        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,19 +31,11 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func openSourceButtonPressed(_ sender: UIButton) {
-        
         guard
             let urlString = viewModel?.url,
             let url = URL(string: urlString) else { return }
-        
         let svc = SFSafariViewController(url: url)
         present(svc, animated: true, completion: nil)
-        
-        //        if let url = URL(string: viewModel.url) {
-        //            let svc = SFSafariViewController(url: url)
-        //            present(svc, animated: true, completion: nil)
-        //        }
-        
     }
     
     private func addGradient() {
@@ -73,6 +53,22 @@ class DetailVC: UIViewController {
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    private func setup() {
+        addGradient()
+        
+        openSourceButton.backgroundColor = .clear
+        openSourceButton.layer.cornerRadius = 15
+        openSourceButton.layer.borderWidth = 1
+        openSourceButton.layer.borderColor = UIColor.red.cgColor
+        openSourceButton.setTitleColor(.red, for: .normal)
+        
+        if let viewModel = viewModel {
+            titleLabel.text = viewModel.title
+            sourceLabel.text = viewModel.sourse
+            descriptionLabel.text = viewModel.description
+        }
     }
     
 }
