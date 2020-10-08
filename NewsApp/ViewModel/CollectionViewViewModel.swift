@@ -6,7 +6,7 @@
 //  Copyright © 2020 Artem Ulko. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class CollectionViewViewModel: CollectionViewViewModelType {
     
@@ -14,7 +14,14 @@ final class CollectionViewViewModel: CollectionViewViewModelType {
     private var articles = [Article]()
     
     func fetchArticles(completionHandler: @escaping() -> ()) {
-        NetworkManagerImp.getTopHeadlines {[weak self] topHeadlinesResponse,error in           
+        NetworkManagerImp.getTopHeadlines {[weak self] topHeadlinesResponse, error in
+            
+            if error != nil {
+                DispatchQueue.main.async {
+                    ErrorMessage.showErrorMessage(error?.localizedDescription ?? "Error :-(")
+                }
+            }
+            
             guard let topHeadlinesResponse = topHeadlinesResponse else { return }
             self?.articles = topHeadlinesResponse.articles
             completionHandler()

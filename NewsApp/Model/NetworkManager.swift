@@ -42,6 +42,7 @@ final class NetworkManagerImp: NetworkManager {
                 completionHandler(topHeadlinesResponse, nil)
             } catch let error {
                 print(error)
+                completionHandler(nil, error)
             }
         }
         task.resume()
