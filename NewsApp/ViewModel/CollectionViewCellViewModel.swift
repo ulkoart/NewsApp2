@@ -17,7 +17,7 @@ class CollectionViewCellViewModel: CollectionViewCellViewModelType {
     var sourse: String {
         return article.source.name
     }
-    var urlToImage: String {
+    var urlToImage: String? {
         return article.urlToImage
     }
     

@@ -20,6 +20,7 @@ final class CollectionViewViewModel: CollectionViewViewModelType {
                 DispatchQueue.main.async {
                     ErrorMessage.showErrorMessage(error?.localizedDescription ?? "Error :-(")
                 }
+                return
             }
             
             guard let topHeadlinesResponse = topHeadlinesResponse else { return }

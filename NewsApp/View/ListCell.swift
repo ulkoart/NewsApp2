@@ -27,13 +27,15 @@ class ListCell: UICollectionViewCell {
         imageLoadTask?.cancel()
     }
     
-    private func setup(title: String, sourse: String, urlToImage: String) {
+    private func setup(title: String, sourse: String, urlToImage: String?) {
         self.layer.cornerRadius = 5
         titleLabel.text = title
         sourseLabel.text = sourse
         imageView.image = UIImage(named: "icon-placeholder")
-
-        guard let imageUrl = URL(string: urlToImage) else { return }
+        
+        guard
+            let urlToImage = urlToImage,
+            let imageUrl = URL(string: urlToImage) else { return }
         imageLoadTask = URLSession.shared.dataTask(with: imageUrl) { data, _, _ in
             guard let data = data, let image = UIImage(data: data) else { return }
             DispatchQueue.main.async {
