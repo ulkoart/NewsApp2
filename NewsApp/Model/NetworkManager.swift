@@ -6,7 +6,8 @@
 //  Copyright © 2020 Artem Ulko. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import CoreData
 
 protocol NetworkManager {
     typealias TopHeadlinesCompletion = (TopHeadlinesResponse?, Error?) -> Void
@@ -39,6 +40,15 @@ final class NetworkManagerImp: NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let topHeadlinesResponse = try decoder.decode(TopHeadlinesResponse.self, from: data)
+                let articles = topHeadlinesResponse.articles
+                
+                DispatchQueue.main.async {
+                    articles.forEach {
+                        let source: String = $0.source.name
+                        save(value: source)
+                    }
+                }
+                
                 completionHandler(topHeadlinesResponse, nil)
             } catch let error {
                 print(error)
@@ -46,5 +56,25 @@ final class NetworkManagerImp: NetworkManager {
             }
         }
         task.resume()
+    }
+}
+
+extension NetworkManagerImp {
+    static func save(value: String) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let context = appDelegate.persistentContainer.viewContext
+            
+            guard let entityDescription = NSEntityDescription.entity(forEntityName: "ArticleModel", in: context) else { return }
+            
+            let newValue = NSManagedObject(entity: entityDescription, insertInto: context)
+            newValue.setValue(value, forKey: "source")
+            
+            do {
+                try context.save()
+                print("Saved \(value)")
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }
     }
 }
