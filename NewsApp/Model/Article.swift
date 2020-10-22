@@ -17,9 +17,12 @@ struct Article: Codable {
     let urlToImage: String? // ToDo check https if protocol http
     let publishedAt: String
     let content: String?
+    
+    let imageData: Data?
+    let offLine: Bool?
 
     enum CodingKeys: String, CodingKey {
-        case source, author, title, url, urlToImage, publishedAt, content
+        case source, author, title, url, urlToImage, publishedAt, content, imageData, offLine
         case articleDescription = "description"
     }
 }

@@ -68,6 +68,11 @@ class DetailVC: UIViewController {
             titleLabel.text = viewModel.title
             sourceLabel.text = viewModel.sourse
             descriptionLabel.text = viewModel.description
+            
+            if viewModel.offLine == true {
+                openSourceButton.isHidden = true
+            }
+            
         }
     }
     

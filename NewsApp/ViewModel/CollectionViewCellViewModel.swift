@@ -21,6 +21,10 @@ class CollectionViewCellViewModel: CollectionViewCellViewModelType {
         return article.urlToImage
     }
     
+    var imageData: Data? {
+        return article.imageData
+    }
+    
     init(article: Article) {
         self.article = article
     }

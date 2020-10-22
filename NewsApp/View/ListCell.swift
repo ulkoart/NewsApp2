@@ -12,12 +12,13 @@ class ListCell: UICollectionViewCell {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var sourseLabel: UILabel!
     @IBOutlet private var imageView: UIImageView!
+    
     private var imageLoadTask: URLSessionTask?
     
     weak var viewModel: CollectionViewCellViewModelType? {
         willSet(viewModel) {
             guard let viewModel = viewModel else { return }
-            setup(title: viewModel.title, sourse: viewModel.sourse, urlToImage: viewModel.urlToImage)
+            setup(title: viewModel.title, sourse: viewModel.sourse, urlToImage: viewModel.urlToImage, imageData: viewModel.imageData)
         }
     }
     
@@ -27,21 +28,31 @@ class ListCell: UICollectionViewCell {
         imageLoadTask?.cancel()
     }
     
-    private func setup(title: String, sourse: String, urlToImage: String?) {
+    private func setup(title: String, sourse: String, urlToImage: String?, imageData: Data?) {
         self.layer.cornerRadius = 5
         titleLabel.text = title
         sourseLabel.text = sourse
         imageView.image = UIImage(named: "icon-placeholder")
         
-        guard
-            let urlToImage = urlToImage,
-            let imageUrl = URL(string: urlToImage) else { return }
-        imageLoadTask = URLSession.shared.dataTask(with: imageUrl) { data, _, _ in
-            guard let data = data, let image = UIImage(data: data) else { return }
-            DispatchQueue.main.async {
-                self.imageView.image = image
+        if let imageData = imageData {
+            let image = UIImage(data: imageData)
+            imageView.image = image
+        } else {
+            guard
+                let urlToImage = urlToImage,
+                let imageUrl = URL(string: urlToImage) else { return }
+            
+            imageLoadTask = URLSession.shared.dataTask(with: imageUrl) { data, _, _ in
+                guard let data = data, let image = UIImage(data: data) else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.imageView.image = image
+                }
             }
+            imageLoadTask?.resume()
         }
-        imageLoadTask?.resume()
+        
+        
     }
 }

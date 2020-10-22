@@ -12,10 +12,12 @@ import CoreData
 class CollectionVC: UIViewController {
     
     @IBOutlet private var collectionView: UICollectionView!
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
     private let reuseIdentifier = "Cell"
     private let refreshControl = UIRefreshControl()
     private var viewModel: CollectionViewViewModel?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,7 @@ class CollectionVC: UIViewController {
     }
     
     private func setup() {
+        activityIndicator.isHidden = false
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.refreshControl = refreshControl
@@ -31,6 +34,7 @@ class CollectionVC: UIViewController {
         viewModel?.fetchArticles {
             [weak self] in
             DispatchQueue.main.async {
+                self?.activityIndicator.isHidden = true
                 self?.collectionView.reloadData()
             }
         }

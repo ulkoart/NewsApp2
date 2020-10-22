@@ -13,8 +13,8 @@ class ErrorMessage {
         let alertWindow = UIWindow(frame: UIScreen.main.bounds)
         alertWindow.rootViewController = UIViewController()
         
-        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
-        alertController.addAction(UIAlertAction(title: "Close", style: UIAlertAction.Style.cancel, handler: { _ in
+        let alertController = UIAlertController(title: "Ошибка", message: message, preferredStyle: UIAlertController.Style.alert)
+        alertController.addAction(UIAlertAction(title: "Закрыть", style: UIAlertAction.Style.cancel, handler: { _ in
             alertWindow.isHidden = true
         }))
         

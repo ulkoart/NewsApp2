@@ -13,4 +13,5 @@ protocol DetailViewModelType {
     var sourse: String { get }
     var description: String? { get }
     var url: String { get }
+    var offLine: Bool? { get }
 }

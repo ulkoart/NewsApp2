@@ -9,6 +9,7 @@
 import Foundation
 
 class DetailViewModel: DetailViewModelType {
+   
     private var article: Article
     
     var title: String {
@@ -25,6 +26,10 @@ class DetailViewModel: DetailViewModelType {
     
     var url: String {
         return article.url
+    }
+    
+    var offLine: Bool? {
+        return article.offLine
     }
     
     init(article: Article) {

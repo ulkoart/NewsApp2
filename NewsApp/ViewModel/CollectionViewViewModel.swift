@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 final class CollectionViewViewModel: CollectionViewViewModelType {
     
@@ -18,8 +19,11 @@ final class CollectionViewViewModel: CollectionViewViewModelType {
             
             if error != nil {
                 DispatchQueue.main.async {
-                    ErrorMessage.showErrorMessage(error?.localizedDescription ?? "Error :-(")
+                    print(error?.localizedDescription ?? "error")
+                    ErrorMessage.showErrorMessage("Нет соеденения с интернетом, будут отображены новости полученные ранее")
+                    self?.articles = CollectionViewViewModel.getArticlesFromCD()
                 }
+                completionHandler()
                 return
             }
             
@@ -45,5 +49,35 @@ final class CollectionViewViewModel: CollectionViewViewModelType {
     
     func selectRow(atIndexPath indexPath: IndexPath) {
         self.selectedIndexPath = indexPath
+    }
+    
+    private static func getArticlesFromCD() -> [Article] {
+        var articles = [Article]()
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<ArticleModel> = ArticleModel.fetchRequest()
+            
+            if let objects = try? context.fetch(fetchRequest) {
+                for articleModel in objects {
+                    let source = Source(id: nil, name: articleModel.source!)
+                    let article = Article(
+                        source: source,
+                        author: articleModel.author,
+                        title: articleModel.title!,
+                        articleDescription: articleModel.articleDescription,
+                        url: articleModel.url!,
+                        urlToImage: articleModel.urlToImage,
+                        publishedAt: articleModel.publishedAt!,
+                        content: articleModel.content,
+                        imageData: articleModel.imageData,
+                        offLine: true
+                    )
+                    articles.append(article)
+                }
+            }
+            
+        }
+        return articles
     }
 }
